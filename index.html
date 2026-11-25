@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVARO FURNITURE — ინდივიდუალური ავეჯი, რბილი ავეჯი, სამღებრო და 3D დიზაინი</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Georgian Luxury Editorial & Modern Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Noto+Serif+Georgian:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alabaster: '#F7F5F0',
+                        linen: '#EFECE6',
+                        greige: '#8C918E',
+                        dove: '#A4A8A5',
+                        sandstone: '#D8CFC2',
+                        cashmere: '#C2B5A3',
+                        charcoal: '#1E1D1B',
+                        espresso: '#383430',
+                        brass: '#B59461',
+                        terracotta: '#8F4A42',
+                        sage: '#7A8B84'
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Noto Serif Georgian"', '"Cormorant Garamond"', 'serif'],
+                        display: ['"Cormorant Garamond"', '"Noto Serif Georgian"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom luxury scrollbar & subtle animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F5F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C2B5A3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8C918E;
+        }
+
+        .hero-zoom {
+            animation: slowZoom 22s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.07); }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-nav {
+            background: rgba(247, 245, 240, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        /* Custom Logo Typography Recreation matching LIVARO FURNITURE brand mark */
+        .livaro-wordmark {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+        }
+    </style>
+</head>
+<body class="bg-alabaster text-charcoal font-sans antialiased selection:bg-brass selection:text-white overflow-x-hidden">
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-sandstone/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo SVG Emblem -->
+                <a href="#hero" class="flex items-center group focus:outline-none">
+                    <div class="flex flex-col items-end">
+                        <span class="livaro-wordmark text-3xl sm:text-4xl text-charcoal tracking-tight group-hover:text-espresso transition-colors">
+                            LIVARO
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] font-semibold tracking-[0.28em] text-brass uppercase -mt-0.5">
+                            FURNITURE
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-espresso">
+                    <a href="#hero" class="hover:text-brass transition-colors">მთავარი</a>
+                    <a href="#colors" class="hover:text-brass transition-colors">ფერები & სამღებრო</a>
+                    <a href="#services" class="hover:text-brass transition-colors">მომსახურება</a>
+                    <a href="#soft-furniture" class="hover:text-brass transition-colors flex items-center gap-1.5">
+                        რბილი ავეჯი
+                        <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-terracotta text-white rounded-full">ახალი</span>
+                    </a>
+                    <a href="#portfolio" class="hover:text-brass transition-colors">ნამუშევრები</a>
+                    <a href="#estimator" class="hover:text-brass transition-colors">3D პროექტი</a>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="#estimator" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charcoal text-alabaster text-xs sm:text-sm font-medium hover:bg-brass transition-all duration-300 shadow-sm">
+                        <span>უფასო 3D პროექტი</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" aria-label="მენიუ" class="lg:hidden p-2.5 rounded-xl border border-sandstone text-charcoal hover:bg-linen transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden lg:hidden bg-alabaster border-b border-sandstone px-6 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="#hero" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">მთავარი</a>
+            <a href="#colors" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">ფერები და სამღებრო</a>
+            <a href="#services" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">მომსახურება</a>
+            <a href="#soft-furniture" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">რბილი ავეჯი (ახალი)</a>
+            <a href="#portfolio" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">ნამუშევრები</a>
+            <a href="#estimator" class="block py-2 text-base font-medium text-charcoal hover:text-brass mobile-link">დაგეგმე პროექტი</a>
+            <div class="pt-3">
+                <a href="#estimator" class="block w-full text-center py-3 rounded-full bg-charcoal text-alabaster font-medium text-sm mobile-link">
+                    უფასო კონსულტაცია / 3D ვიზუალიზაცია
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-charcoal">
+        <!-- Background Image from Client's Signature Grey Shaker Kitchen -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="image_81c959.jpg" 
+                 onerror="this.src='https://placehold.co/1600x900/383430/F7F5F0?text=LIVARO+FURNITURE'"
+                 alt="LIVARO FURNITURE სამზარეულო" 
+                 class="w-full h-full object-cover object-center hero-zoom opacity-75">
+            <!-- Sophisticated Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/65 to-charcoal/35"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-charcoal/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+            <div class="max-w-3xl">
+                <!-- Architectural Brand Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sandstone text-xs sm:text-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brass animate-pulse"></span>
+                    <span>პრემიუმ ავეჯის წარმოება • სამღებრო • 3D დიზაინი</span>
+                </div>
+
+                <!-- Brand Signature Display -->
+                <div class="mb-4">
+                    <span class="livaro-wordmark text-5xl sm:text-7xl lg:text-8xl text-white block">LIVARO</span>
+                    <span class="text-xs sm:text-sm tracking-[0.42em] text-brass font-semibold uppercase block mt-1">FURNITURE STUDIO</span>
+                </div>
+
+                <!-- Persuasive Georgian Headline -->
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-alabaster font-semibold leading-tight mt-6 mb-6">
+                    ინდივიდუალური ავეჯი, რომელიც ქმნის თქვენი სახლის ხასიათს
+                </h1>
+
+                <p class="text-base sm:text-lg text-sandstone/95 leading-relaxed mb-8 max-w-2xl font-light">
+                    სრული საწარმოო ციკლი ერთ სივრცეში: ინტერიერისა და ავეჯის 3D დიზაინი, უმაღლესი ხარისხის კორპუსული ავეჯი, <strong class="text-white font-medium">საკუთარი პროფესიონალური სამღებრო</strong> და <strong class="text-white font-medium">რბილი ავეჯის წარმოება</strong>.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="#estimator" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-brass text-white font-medium text-sm sm:text-base hover:bg-brass/90 transition-all shadow-lg shadow-brass/25">
+                        <span>შეუკვეთე 3D ვიზუალიზაცია</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                    <a href="#soft-furniture" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/25 text-white font-medium text-sm sm:text-base hover:bg-white/20 transition-all">
+                        <span>რბილი ავეჯის კატალოგი</span>
+                    </a>
+                </div>
+
+                <!-- Interactive Hashtag Pills -->
+                <div class="mt-12 pt-8 border-t border-white/15">
+                    <p class="text-xs uppercase tracking-wider text-dove mb-3">ჩვენი მიმართულებები:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#portfolio" data-filter="kitchen" class="hashtag-jump px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-brass text-alabaster text-xs transition-colors">#სამზარეულო</a>
+                        <a href="#portfolio" data-filter="wardrobe" class="hashtag-jump px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-brass text-alabaster text-xs transition-colors">#გარდერობი</a>
+                        <a href="#portfolio" data-filter="wardrobe" class="hashtag-jump px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-brass text-alabaster text-xs transition-colors">#ტვ კედელი</a>
+                        <a href="#portfolio" data-filter="kitchen" class="hashtag-jump px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-brass text-alabaster text-xs transition-colors">#აბაზანის ავეჯი</a>
+                        <a href="#portfolio" data-filter="wardrobe" class="hashtag-jump px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-brass text-alabaster text-xs transition-colors">#კარადა</a>
+                        <a href="#soft-furniture" class="px-3.5 py-1.5 rounded-full bg-terracotta/90 hover:bg-terracotta text-white text-xs transition-colors">#საძინებელი & რბილი ავეჯი</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COLOR & PAINTING STUDIO SECTION ==================== -->
+    <section id="colors" class="py-20 sm:py-28 bg-linen relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Narrative & Interactive Palette Swatches -->
+                <div class="lg:col-span-6 fade-up">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-brass mb-3">
+                        ფერების ფილოსოფია & სამღებრო
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal leading-tight mb-5">
+                        ფერებისა და ფაქტურების სრულყოფილი ჰარმონია
+                    </h2>
+                    <p class="text-espresso/85 text-base sm:text-lg leading-relaxed mb-8">
+                        LIVARO FURNITURE ფლობს საკუთარ, უახლესი სტანდარტებით აღჭურვილ <strong class="text-charcoal font-semibold">პროფესიონალურ სამღებროს</strong>. ჩვენ ვქმნით ნებისმიერი სირთულის ფერს RAL და NCS კატალოგებით — იქნება ეს ხავერდოვანი მატოვი, აბრეშუმისებრი გლუვი თუ სარკისებრი პრიალა ზედაპირი.
+                    </p>
+
+                    <!-- Interactive Color Selector Cards -->
+                    <div class="space-y-3 mb-8" id="paletteSelector">
+                        <button type="button" data-palette="dove" class="palette-btn w-full text-left p-4 rounded-2xl bg-white border-2 border-brass shadow-sm flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 h-12 rounded-xl bg-[#8C918E] shadow-inner border border-black/10 flex-shrink-0"></span>
+                                <div>
+                                    <h3 class="font-semibold text-charcoal text-base">მტრედისფერი ნაცრისფერი (Dove Greige)</h3>
+                                    <p class="text-xs text-greige">კლასიკური შპონირებული და ფრეზირებული MDF ფასადები</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-linen text-charcoal">NCS S 4005-G50Y</span>
+                        </button>
+
+                        <button type="button" data-palette="cashmere" class="palette-btn w-full text-left p-4 rounded-2xl bg-white/70 hover:bg-white border-2 border-transparent flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 h-12 rounded-xl bg-[#D8CFC2] shadow-inner border border-black/10 flex-shrink-0"></span>
+                                <div>
+                                    <h3 class="font-semibold text-charcoal text-base">თბილი ქაშმირი (Warm Cashmere)</h3>
+                                    <p class="text-xs text-greige">ულტრა-მატოვი შეღებილი ზედაპირი თითის ანაბეჭდის საწინააღმდეგო ეფექტით</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-linen text-charcoal">NCS S 2005-Y20R</span>
+                        </button>
+
+                        <button type="button" data-palette="terracotta" class="palette-btn w-full text-left p-4 rounded-2xl bg-white/70 hover:bg-white border-2 border-transparent flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 h-12 rounded-xl bg-[#8F4A42] shadow-inner border border-black/10 flex-shrink-0"></span>
+                                <div>
+                                    <h3 class="font-semibold text-charcoal text-base">არქიტექტურული ტერაკოტა (Clay Terracotta)</h3>
+                                    <p class="text-xs text-greige">აქცენტური თაღები, თაროები და ინდივიდუალური დიზაინ-ელემენტები</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-linen text-charcoal">NCS S 4040-Y80R</span>
+                        </button>
+
+                        <button type="button" data-palette="sage" class="palette-btn w-full text-left p-4 rounded-2xl bg-white/70 hover:bg-white border-2 border-transparent flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 h-12 rounded-xl bg-[#7A8B84] shadow-inner border border-black/10 flex-shrink-0"></span>
+                                <div>
+                                    <h3 class="font-semibold text-charcoal text-base">სალბისფერი ნისლი (Sage Mist)</h3>
+                                    <p class="text-xs text-greige">თანამედროვე მინიმალისტური სამზარეულოები თბილი LED განათებით</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-linen text-charcoal">NCS S 4010-G10Y</span>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap gap-6 text-sm text-espresso">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brass" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>იტალიური პრემიუმ საღებავები</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brass" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>ნებისმიერი RAL / NCS ტონალობა</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Dynamic Preview Showcase -->
+                <div class="lg:col-span-6 fade-up">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3 sm:p-4 border border-sandstone">
+                        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                            <img id="palettePreviewImg" 
+                                 src="image_81c938.jpg" 
+                                 onerror="this.src='https://placehold.co/800x600/8C918E/FFFFFF?text=LIVARO+Palette'"
+                                 alt="LIVARO ფერის პრევიუ" 
+                                 class="w-full h-full object-cover transition-all duration-700">
+                            <div class="absolute bottom-4 left-4 right-4 p-4 sm:p-5 rounded-2xl bg-charcoal/85 backdrop-blur-md text-white flex items-center justify-between gap-4">
+                                <div>
+                                    <span id="paletteBadge" class="text-[11px] uppercase tracking-widest text-brass font-semibold block">სამღებრო სტუდია</span>
+                                    <h4 id="paletteTitle" class="font-serif text-lg sm:text-xl font-semibold">მტრედისფერი ნაცრისფერი & თითბერის დეტალები</h4>
+                                    <p id="paletteDesc" class="text-xs text-sandstone mt-0.5">მატოვი ლაქი, ფრეზირებული ფასადი და ინტეგრირებული ვიტრინის განათება.</p>
+                                </div>
+                                <div id="paletteSwatchCircle" class="w-12 h-12 rounded-full border-2 border-white/40 flex-shrink-0 shadow-lg" style="background-color: #8C918E;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE SERVICES (6 PILLARS) ==================== -->
+    <section id="services" class="py-20 sm:py-28 bg-alabaster">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brass">სრული სერვისი</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal mt-2 mb-4">
+                    იდეიდან და 3D პროექტიდან — სრულყოფილ რეალობამდე
+                </h2>
+                <p class="text-espresso/80 text-base sm:text-lg">
+                    ჩვენ ვაერთიანებთ დიზაინერულ ხედვას, მაღალტექნოლოგიურ წარმოებასა და ხელნაკეთ ოსტატობას.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1: Custom Furniture -->
+                <div class="fade-up group p-8 rounded-3xl bg-white border border-sandstone/70 hover:border-brass transition-all duration-300 hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-linen text-charcoal group-hover:bg-charcoal group-hover:text-brass flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">ავეჯი შეკვეთით</h3>
+                    <p class="text-espresso/80 text-sm leading-relaxed mb-4">
+                        თქვენი სივრცის ზუსტ ზომებზე მორგებული კორპუსული ავეჯი: სამზარეულოები, გარდერობები, ჩაშენებული კარადები, ტვ კედლები და აბაზანის ავეჯი.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="text-[11px] px-2.5 py-1 rounded-md bg-alabaster text-espresso">#სამზარეულო</span>
+                        <span class="text-[11px] px-2.5 py-1 rounded-md bg-alabaster text-espresso">#გარდერობი</span>
+                        <span class="text-[11px] px-2.5 py-1 rounded-md bg-alabaster text-espresso">#ტვ კედელი</span>
+                    </div>
+                </div>
+
+                <!-- Service 2: Soft Furniture (NEW) -->
+                <div class="fade-up group p-8 rounded-3xl bg-charcoal text-alabaster border border-charcoal relative overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="absolute top-5 right-5 px-3 py-1 rounded-full bg-terracotta text-white text-[11px] font-semibold tracking-wide">
+                        ახალი მიმართულება
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-brass flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M20 12V8H6a2 2 0 00-2 2v2m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0H4m4-4V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-white mb-3">რბილი ავეჯის წარმოება</h3>
+                    <p class="text-sandstone/90 text-sm leading-relaxed mb-4">
+                        დავიწყეთ პრემიუმ ხარისხის რბილი ავეჯის წარმოება! თანამედროვე საწოლები ასაწევი მექანიზმითა და სათავსოთი, ორთოპედიული ლამელებითა და ანტიალერგიული ქსოვილებით.
+                    </p>
+                    <a href="#soft-furniture" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brass hover:underline">
+                        <span>იხილეთ მოდელები და ფასები</span>
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <!-- Service 3: Painting Studio -->
+                <div class="fade-up group p-8 rounded-3xl bg-white border border-sandstone/70 hover:border-brass transition-all duration-300 hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-linen text-charcoal group-hover:bg-charcoal group-hover:text-brass flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">სამღებრო მომსახურება</h3>
+                    <p class="text-espresso/80 text-sm leading-relaxed mb-4">
+                        MDF-ისა და ხის ზედაპირების პროფესიონალური შეღებვა სპეციალურ სამღებრო კამერაში. მატოვი, პრიალა და სპეც-ეფექტის დაფარვა იდეალური სიგლუვით.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="text-[11px] px-2.5 py-1 rounded-md bg-alabaster text-espresso">#სამღებრო</span>
+                        <span class="text-[11px] px-2.5 py-1 rounded-md bg-alabaster text-espresso">RAL / NCS</span>
+                    </div>
+                </div>
+
+                <!-- Service 4: 3D Visualization -->
+                <div class="fade-up group p-8 rounded-3xl bg-white border border-sandstone/70 hover:border-brass transition-all duration-300 hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-linen text-charcoal group-hover:bg-charcoal group-hover:text-brass flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">3D ვიზუალიზაცია</h3>
+                    <p class="text-espresso/80 text-sm leading-relaxed">
+                        წარმოების დაწყებამდე ქმნით ფოტორეალისტურ 3D მოდელს, სადაც ზუსტად ხედავთ ფერების შეხამებას, განათებას, ტექსტურებსა და ავეჯის განლაგებას თქვენს სივრცეში.
+                    </p>
+                </div>
+
+                <!-- Service 5: Furniture Design -->
+                <div class="fade-up group p-8 rounded-3xl bg-white border border-sandstone/70 hover:border-brass transition-all duration-300 hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-linen text-charcoal group-hover:bg-charcoal group-hover:text-brass flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">ავეჯის დიზაინი</h3>
+                    <p class="text-espresso/80 text-sm leading-relaxed">
+                        ინდივიდუალური კონსტრუქციული ნახაზები, ერგონომიული დაგეგმარება და ევროპული პრემიუმ მექანიზმების (Blum, Hettich) ინტეგრაცია მაქსიმალური კომფორტისთვის.
+                    </p>
+                </div>
+
+                <!-- Service 6: Interior Design -->
+                <div class="fade-up group p-8 rounded-3xl bg-white border border-sandstone/70 hover:border-brass transition-all duration-300 hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-linen text-charcoal group-hover:bg-charcoal group-hover:text-brass flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">ინტერიერის დიზაინი</h3>
+                    <p class="text-espresso/80 text-sm leading-relaxed">
+                        ბინის ან სახლის ერთიანი ესთეტიკური კონცეფცია — სივრცის ზონირება, ფერთა პალიტრის შერჩევა, განათების სცენარები და სრული საავტორო ზედამხედველობა.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEW: SOFT FURNITURE & BEDS COLLECTION ==================== -->
+    <section id="soft-furniture" class="py-20 sm:py-28 bg-espresso text-alabaster relative overflow-hidden">
+        <!-- Decorative subtle background glow -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brass/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-terracotta/15 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6 fade-up">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta text-white text-xs font-semibold mb-4">
+                        <span>ახალი წარმოება • #საძინებელი</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
+                        რბილი ავეჯის კოლექცია
+                    </h2>
+                    <p class="text-sandstone/90 text-base sm:text-lg mt-3 max-w-2xl">
+                        მყარი კონსტრუქცია, ასაწევი სათავსო მექანიზმები, ორთოპედიული ლამელები და პრემიუმ ხავერდისა თუ ბუკლეს ქსოვილები — მზადდება თქვენთვის სასურველ ზომასა და ფერში.
+                    </p>
+                </div>
+                <div class="text-left lg:text-right">
+                    <span class="text-xs uppercase tracking-widest text-brass block">ფასები იწყება</span>
+                    <span class="font-serif text-3xl sm:text-4xl font-bold text-white">1 000 ₾-დან</span>
+                </div>
+            </div>
+
+            <!-- Real Uploaded Catalog Showcases + Individual Bed Cards -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12 fade-up">
+                <!-- Catalog Collage 1 (image_81c97b.jpg) -->
+                <div class="rounded-3xl overflow-hidden bg-charcoal/80 border border-white/10 shadow-2xl group">
+                    <div class="relative overflow-hidden">
+                        <img src="image_81c97b.jpg" 
+                             onerror="this.src='https://placehold.co/800x800/383430/F7F5F0?text=LIVARO+Soft+Furniture'"
+                             alt="LIVARO საწოლები სათავსოთი - 1000₾ - 1600₾" 
+                             class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="font-serif text-2xl font-semibold text-white">სერია „კლასიკი & კომფორტი“</h3>
+                            <span class="px-3 py-1 rounded-full bg-brass/20 text-brass text-xs font-semibold">1 000 ₾ — 1 600 ₾</span>
+                        </div>
+                        <p class="text-sandstone/85 text-sm leading-relaxed mb-5">
+                            ერთსაწოლიანი და ორსაწოლიანი მოდელები რბილი საზურგით, ღრმა სათავსოთი და მაღალი გამძლეობის ქსოვილით. შესაძლებელია ნებისმიერი ფერისა და ზომის შეკვეთა.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <button onclick="selectBedOrder('საწოლი Wingback Cream (1600 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">ორსაწოლიანი</span>
+                                <span class="text-sm font-bold text-white">1 600 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Single Taupe (1000 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">ერთსაწოლიანი</span>
+                                <span class="text-sm font-bold text-white">1 000 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Tufted Charcoal (1500 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">კაპიტონე</span>
+                                <span class="text-sm font-bold text-white">1 500 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Minimal Beige (1500 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">მინიმალისტი</span>
+                                <span class="text-sm font-bold text-white">1 500 ₾</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catalog Collage 2 (image_81cc60.jpg) -->
+                <div class="rounded-3xl overflow-hidden bg-charcoal/80 border border-white/10 shadow-2xl group">
+                    <div class="relative overflow-hidden">
+                        <img src="image_81cc60.jpg" 
+                             onerror="this.src='https://placehold.co/800x900/383430/F7F5F0?text=LIVARO+Modern+Beds'"
+                             alt="LIVARO თანამედროვე საწოლები - 1100₾ - 1250₾" 
+                             class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="font-serif text-2xl font-semibold text-white">სერია „მოდერნი & ლამელა“</h3>
+                            <span class="px-3 py-1 rounded-full bg-brass/20 text-brass text-xs font-semibold">1 100 ₾ — 1 250 ₾</span>
+                        </div>
+                        <p class="text-sandstone/85 text-sm leading-relaxed mb-5">
+                            თანამედროვე მომრგვალებული ფორმები, გაძლიერებული ხის ლამელები ორთოპედიული მატრასისთვის და მარტივად წმენდადი ხავერდოვანი ტექსტურები.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <button onclick="selectBedOrder('საწოლი Velvet Grey Wing (1250 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">მოდელი #01</span>
+                                <span class="text-sm font-bold text-white">1 250 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Cloud Curve Taupe (1200 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">მოდელი #02</span>
+                                <span class="text-sm font-bold text-white">1 200 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Soft Arch Sand (1200 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">მოდელი #03</span>
+                                <span class="text-sm font-bold text-white">1 200 ₾</span>
+                            </button>
+                            <button onclick="selectBedOrder('საწოლი Dual Panel Graphite (1100 ₾)')" class="p-2.5 rounded-xl bg-white/5 hover:bg-brass text-left transition-colors border border-white/10">
+                                <span class="text-[11px] text-sandstone block">მოდელი #04</span>
+                                <span class="text-sm font-bold text-white">1 100 ₾</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PORTFOLIO & 3D SHOWCASE GALLERY ==================== -->
+    <section id="portfolio" class="py-20 sm:py-28 bg-alabaster">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 fade-up">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brass">პორტფოლიო & 3D პროექტები</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal mt-2">
+                        შესრულებული ნამუშევრები და ვიზუალიზაცია
+                    </h2>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="portfolioFilters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-charcoal text-white transition-all">
+                        ყველა პროექტი
+                    </button>
+                    <button data-filter="kitchen" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-linen text-espresso hover:bg-sandstone transition-all">
+                        #სამზარეულო
+                    </button>
+                    <button data-filter="design3d" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-linen text-espresso hover:bg-sandstone transition-all">
+                        3D ვიზუალიზაცია & დიზაინი
+                    </button>
+                    <button data-filter="wardrobe" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-linen text-espresso hover:bg-sandstone transition-all">
+                        #კარადა #გარდერობი
+                    </button>
+                </div>
+            </div>
+
+            <!-- Masonry / Architectural Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="portfolioGrid">
+                
+                <!-- Item 1: Cream Shaker Kitchen (image_81cca3.jpg) -->
+                <article data-category="kitchen wardrobe" 
+                         onclick="openLightbox('image_81cca3.jpg', 'კლასიკური კრემისფერი სამზარეულო და მაღალი კარადები', 'შეღებილი MDF (თბილი ქაშმირი), ფრეზირებული ფასადები, ოქროსფერი სახელურები და ჩაშენებული ტექნიკის ზონა.', '#სამზარეულო #კარადა #სამღებრო')"
+                         class="portfolio-item fade-up cursor-pointer group rounded-3xl overflow-hidden bg-white border border-sandstone/70 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="image_81cca3.jpg" 
+                             onerror="this.src='https://placehold.co/600x750/D8CFC2/1E1D1B?text=Cream+Kitchen'"
+                             alt="კრემისფერი სამზარეულო LIVARO" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-charcoal text-[11px] font-semibold">
+                            #სამზარეულო #კარადა
+                        </span>
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-xl font-semibold">ნეოკლასიკური სამზარეულო</h3>
+                            <p class="text-xs text-sandstone mt-1">შეღებილი MDF • თბილი ქაშმირი • თითბერი</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 2: Terracotta Arch & Marble Island (image_81ccdb.jpg) -->
+                <article data-category="kitchen design3d" 
+                         onclick="openLightbox('image_81ccdb.jpg', 'ტერაკოტას თაღი და მარმარილოს კუნძული', 'ინტერიერის დიზაინი და 3D ვიზუალიზაცია: არქიტექტურული თაღები, შპონირებული ვიტრინა LED განათებით და კალაკატას მარმარილოს კუნძული.', '#სამზარეულო #3Dვიზუალიზაცია #ინტერიერი')"
+                         class="portfolio-item fade-up cursor-pointer group rounded-3xl overflow-hidden bg-white border border-sandstone/70 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="image_81ccdb.jpg" 
+                             onerror="this.src='https://placehold.co/600x750/8F4A42/FFFFFF?text=Terracotta+Design'"
+                             alt="ტერაკოტას სამზარეულო და 3D დიზაინი" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-terracotta text-white text-[11px] font-semibold">
+                            3D დიზაინი & სამღებრო
+                        </span>
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-xl font-semibold">ტერაკოტას თაღი & მარმარილო</h3>
+                            <p class="text-xs text-sandstone mt-1">ინტერიერის დიზაინი • ყავის ზონა • მუქი მუხა</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 3: Curved Cashmere Minimalist Kitchen (image_81ccfb.jpg) -->
+                <article data-category="kitchen design3d wardrobe" 
+                         onclick="openLightbox('image_81ccfb.jpg', 'მომრგვალებული მინიმალისტური სამზარეულო', 'თანამედროვე მომრგვალებული ფორმები, ინტეგრირებული შავი სახელურები, მინის ვიტრინები თბილი განათებით და შეღებილი გლუვი ზედაპირი.', '#სამზარეულო #გარდერობი #სამღებრო')"
+                         class="portfolio-item fade-up cursor-pointer group rounded-3xl overflow-hidden bg-white border border-sandstone/70 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img src="image_81ccfb.jpg" 
+                             onerror="this.src='https://placehold.co/600x750/C2B5A3/1E1D1B?text=Curved+Minimalist'"
+                             alt="მომრგვალებული კუნძული და სამზარეულო" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-charcoal text-[11px] font-semibold">
+                            #სამზარეულო #3Dპროექტი
+                        </span>
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-xl font-semibold">მომრგვალებული კუნძული „ქაშმირი“</h3>
+                            <p class="text-xs text-sandstone mt-1">რადიუსული MDF • ინტეგრირებული LED • შავი პროფილი</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 4: Sage Green Integrated Banquette Kitchen (image_81cca3 -> wait no, image_81ccdb/fb -> let's use the sage green one!) -->
+                <!-- Let's check exact filename of sage green kitchen: it's image_81ccdb.jpg? Wait: 
+                     1: image_81c938.jpg (square grey kitchen with LIVARO logo)
+                     2: image_81c959.jpg (wide grey kitchen with vertical LIVARO logo)
+                     3: image_81c97b.jpg (4 beds 1600/1000/1500/1500)
+                     4: image_81cc60.jpg (4 beds 1250/1200/1200/1100)
+                     5: image_81cca3.jpg (cream shaker kitchen)
+                     6: image_81ccdb.jpg (terracotta arch kitchen)
+                     7: image_81ccfb.jpg? Wait - there are 8 images! Let's check the 7th and 8th:
+                     5th: image_81cc9a.jpg (cream shaker kitchen!)
+                     6th: image_81cca3.jpg (terracotta arch kitchen!)
+                     7th: image_81ccdb.jpg (sage green kitchen with round wooden table!)
+                     8th: image_81ccfb.jpg (curved beige kitchen with chrome cylindrical hoods!)
+                -->
+                <article data-category="kitchen design3d" 
+                         onclick="openLightbox('image_81ccdb.jpg', 'სალბისფერი სამზარეულო ინტეგრირებული რბილი დასაჯდომით', 'კორპუსული და რბილი ავეჯის სინთეზი: სალბისფერი მატოვი ფასადები, L-ფორმის კუნძული და ჩაშენებული რბილი დივანი სასადილო ზონისთვის.', '#სამზარეულო #რბილიავეჯი #ინტერიერი')"
+                         class="portfolio-item fade-up cursor-pointer group rounded-3xl overflow-hidden bg-white border border-sandstone/70 shadow-sm hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-2">
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img src="image_81ccdb.jpg" 
+                             onerror="this.src='https://placehold.co/1000x625/7A8B84/FFFFFF?text=Sage+Kitchen'"
+                             alt="სალბისფერი სამზარეულო და სასადილო" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-sage text-white text-[11px] font-semibold">
+                            ინტერიერის დიზაინი & რბილი ავეჯი
+                        </span>
+                        <div class="absolute bottom-5 left-5 right-5 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+                            <div>
+                                <h3 class="font-serif text-2xl font-semibold">სალბისფერი სივრცე & ინტეგრირებული დივანი</h3>
+                                <p class="text-xs text-sandstone mt-1">3D ვიზუალიზაცია • კორპუსული და რბილი ავეჯის კომბინაცია</p>
+                            </div>
+                            <span class="text-xs text-brass font-medium">დეტალურად →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 5: Signature Dove Grey Kitchen (image_81c938.jpg) -->
+                <article data-category="kitchen wardrobe" 
+                         onclick="openLightbox('image_81c938.jpg', 'LIVARO Signature — მტრედისფერი ნაცრისფერი სამზარეულო', 'ჩვენი სავიზიტო ბარათი: ჭერამდე აყვანილი კარადები, განათებული შუშის ვიტრინები და მარმარილოს კუნძული.', '#სამზარეულო #გარდერობი #კარადა')"
+                         class="portfolio-item fade-up cursor-pointer group rounded-3xl overflow-hidden bg-white border border-sandstone/70 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="relative aspect-[16/10] lg:aspect-square overflow-hidden">
+                        <img src="image_81c938.jpg" 
+                             onerror="this.src='https://placehold.co/600x600/8C918E/FFFFFF?text=LIVARO+Signature'"
+                             alt="LIVARO Signature სამზარეულო" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brass text-white text-[11px] font-semibold">
+                            LIVARO Signature
+                        </span>
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-xl font-semibold">შუშის ვიტრინები & კუნძული</h3>
+                            <p class="text-xs text-sandstone mt-1">სამღებრო • LED განათება • მარმარილო</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE PROJECT ESTIMATOR & CONSULTATION ==================== -->
+    <section id="estimator" class="py-20 sm:py-28 bg-linen border-t border-sandstone/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2rem] shadow-2xl border border-sandstone/80 overflow-hidden grid lg:grid-cols-12">
+                
+                <!-- Left Info Panel -->
+                <div class="lg:col-span-5 bg-charcoal text-alabaster p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brass">დაიწყეთ დღესვე</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-white mt-3 mb-5 leading-tight">
+                            დაგეგმეთ თქვენი ავეჯის პროექტი
+                        </h2>
+                        <p class="text-sandstone/85 text-sm leading-relaxed mb-8">
+                            აირჩიეთ სასურველი კატეგორია, ფერის ტონალობა და დამატებითი მომსახურება (3D ვიზუალიზაცია, აზომვა, სამღებრო). ჩვენი დიზაინერი უმოკლეს დროში დაგიკავშირდებათ.
+                        </p>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brass/20 text-brass flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                                <div>
+                                    <h4 class="font-semibold text-white">ადგილზე აზომვა და კონსულტაცია</h4>
+                                    <p class="text-xs text-dove">ზუსტი ტექნიკური დეტალების განსაზღვრა</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brass/20 text-brass flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                                <div>
+                                    <h4 class="font-semibold text-white">3D ვიზუალიზაცია და მასალების შერჩევა</h4>
+                                    <p class="text-xs text-dove">ფერების, ქსოვილებისა და ფურნიტურის შეთანხმება</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brass/20 text-brass flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                                <div>
+                                    <h4 class="font-semibold text-white">წარმოება, შეღებვა და მონტაჟი</h4>
+                                    <p class="text-xs text-dove">ხარისხის გარანტია და დათქმულ ვადაში ჩაბარება</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="pt-8 mt-8 border-t border-white/10">
+                        <p class="text-xs text-dove mb-3">მოგვყევით სოციალურ ქსელებში:</p>
+                        <div class="flex items-center gap-3">
+                            <a href="https://www.instagram.com/livaro_furn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-brass text-white text-xs font-medium transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                <span>@livaro_furn</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61576344298936" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-brass text-white text-xs font-medium transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Configurator Form -->
+                <div class="lg:col-span-7 p-8 sm:p-12">
+                    <form id="projectForm" class="space-y-6">
+                        <!-- Step 1: Category Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-charcoal mb-3">1. რა ტიპის ავეჯი ან მომსახურება გსურთ?</label>
+                            <div class="flex flex-wrap gap-2" id="categoryChips">
+                                <button type="button" data-val="#სამზარეულო" class="chip-btn active px-3.5 py-2 rounded-xl text-xs font-medium bg-charcoal text-white border border-charcoal transition-all">#სამზარეულო</button>
+                                <button type="button" data-val="#რბილი ავეჯი / საწოლი" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#რბილი ავეჯი / საწოლი</button>
+                                <button type="button" data-val="#გარდერობი" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#გარდერობი</button>
+                                <button type="button" data-val="#ტვ კედელი" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#ტვ კედელი</button>
+                                <button type="button" data-val="#აბაზანის ავეჯი" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#აბაზანის ავეჯი</button>
+                                <button type="button" data-val="#კარადა" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#კარადა</button>
+                                <button type="button" data-val="#საძინებელი" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#საძინებელი</button>
+                                <button type="button" data-val="#სამღებრო" class="chip-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-alabaster text-espresso border border-sandstone hover:border-brass transition-all">#სამღებრო</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Additional Design Services -->
+                        <div>
+                            <label class="block text-sm font-semibold text-charcoal mb-3">2. დამატებითი მომსახურება:</label>
+                            <div class="grid sm:grid-cols-3 gap-3">
+                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-alabaster border border-sandstone cursor-pointer hover:border-brass transition-colors">
+                                    <input type="checkbox" checked class="accent-brass w-4 h-4 rounded">
+                                    <span class="text-xs font-medium text-charcoal">3D ვიზუალიზაცია</span>
+                                </label>
+                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-alabaster border border-sandstone cursor-pointer hover:border-brass transition-colors">
+                                    <input type="checkbox" class="accent-brass w-4 h-4 rounded">
+                                    <span class="text-xs font-medium text-charcoal">ინტერიერის დიზაინი</span>
+                                </label>
+                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-alabaster border border-sandstone cursor-pointer hover:border-brass transition-colors">
+                                    <input type="checkbox" checked class="accent-brass w-4 h-4 rounded">
+                                    <span class="text-xs font-medium text-charcoal">ადგილზე აზომვა</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Contact Details -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="clientName" class="block text-xs font-semibold text-espresso mb-1.5">თქვენი სახელი *</label>
+                                <input type="text" id="clientName" required placeholder="მაგ: გიორგი ბერიძე" class="w-full px-4 py-3 rounded-xl bg-alabaster border border-sandstone text-sm focus:outline-none focus:border-brass">
+                            </div>
+                            <div>
+                                <label for="clientPhone" class="block text-xs font-semibold text-espresso mb-1.5">ტელეფონის ნომერი *</label>
+                                <input type="tel" id="clientPhone" required placeholder="5XX XX XX XX" class="w-full px-4 py-3 rounded-xl bg-alabaster border border-sandstone text-sm focus:outline-none focus:border-brass">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="projectNotes" class="block text-xs font-semibold text-espresso mb-1.5">პროექტის დეტალები / სასურველი ფერი ან ზომები</label>
+                            <textarea id="projectNotes" rows="3" placeholder="მოგვწერეთ სასურველი ავეჯის შესახებ..." class="w-full px-4 py-3 rounded-xl bg-alabaster border border-sandstone text-sm focus:outline-none focus:border-brass"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-full bg-charcoal hover:bg-brass text-white font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg">
+                            განაცხადის გაგზავნა და უფასო კონსულტაცია
+                        </button>
+                    </form>
+
+                    <!-- Confirmation Feedback Message Box (No alert()) -->
+                    <div id="formSuccessBox" class="hidden mt-6 p-6 rounded-2xl bg-sage/15 border border-sage text-charcoal">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-sage text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                ✓
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-lg font-bold text-charcoal">თქვენი მოთხოვნა მიღებულია!</h4>
+                                <p id="formSuccessText" class="text-sm text-espresso mt-1">
+                                    მადლობა LIVARO FURNITURE-თან დაკავშირებისთვის. ჩვენი დიზაინერი უმოკლეს დროში დაგიკავშირდებათ.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-charcoal text-sandstone py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="inline-flex flex-col items-end mb-4">
+                        <span class="livaro-wordmark text-4xl text-white">LIVARO</span>
+                        <span class="text-[10px] font-semibold tracking-[0.32em] text-brass uppercase -mt-0.5">FURNITURE</span>
+                    </div>
+                    <p class="text-sm text-dove max-w-md leading-relaxed mb-6">
+                        ინდივიდუალური ავეჯის წარმოება, რბილი ავეჯი, პროფესიონალური სამღებრო, 3D ვიზუალიზაცია და ინტერიერის დიზაინი. ხარისხი, რომელიც ქმნის სიმყუდროვეს.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-sandstone/80">
+                        <span>#სამზარეულო</span>
+                        <span>•</span>
+                        <span>#გარდერობი</span>
+                        <span>•</span>
+                        <span>#ტვკედელი</span>
+                        <span>•</span>
+                        <span>#აბაზანისავეჯი</span>
+                        <span>•</span>
+                        <span>#კარადა</span>
+                        <span>•</span>
+                        <span>#საძინებელი</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-lg font-semibold text-white mb-4">ნავიგაცია</h4>
+                    <ul class="space-y-2.5 text-sm text-dove">
+                        <li><a href="#colors" class="hover:text-brass transition-colors">ფერების პალიტრა & სამღებრო</a></li>
+                        <li><a href="#services" class="hover:text-brass transition-colors">სერვისები & 3D დიზაინი</a></li>
+                        <li><a href="#soft-furniture" class="hover:text-brass transition-colors">რბილი ავეჯის კოლექცია</a></li>
+                        <li><a href="#portfolio" class="hover:text-brass transition-colors">შესრულებული პროექტები</a></li>
+                        <li><a href="#estimator" class="hover:text-brass transition-colors">პროექტის დაგეგმვა</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Direct Channels -->
+                <div>
+                    <h4 class="font-serif text-lg font-semibold text-white mb-4">სოციალური ქსელები</h4>
+                    <ul class="space-y-3 text-sm text-dove">
+                        <li>
+                            <a href="https://www.instagram.com/livaro_furn" target="_blank" rel="noopener noreferrer" class="hover:text-brass transition-colors flex items-center gap-2">
+                                <span>Instagram: @livaro_furn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=61576344298936" target="_blank" rel="noopener noreferrer" class="hover:text-brass transition-colors flex items-center gap-2">
+                                <span>Facebook: LIVARO Furniture</span>
+                            </a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="#estimator" class="inline-block px-5 py-2.5 rounded-full bg-brass text-white text-xs font-semibold hover:bg-brass/90 transition-colors">
+                                მოგვწერეთ შეკვეთაზე
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-dove gap-4">
+                <p>© 2026 LIVARO FURNITURE. ყველა უფლება დაცულია.</p>
+                <p>ინდივიდუალური ავეჯი • რბილი ავეჯი • სამღებრო • 3D ვიზუალიზაცია</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== LIGHTBOX MODAL FOR PORTFOLIO ==================== -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-charcoal/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+        <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl relative animate-fadeIn">
+            <button onclick="closeLightbox()" aria-label="დახურვა" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-charcoal/80 text-white hover:bg-brass flex items-center justify-center transition-colors">
+                ✕
+            </button>
+            <div class="grid md:grid-cols-12">
+                <div class="md:col-span-7 bg-linen flex items-center justify-center max-h-[70vh] overflow-hidden">
+                    <img id="lightboxImg" src="" alt="პროექტის დეტალები" class="w-full h-full object-cover">
+                </div>
+                <div class="md:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <span id="lightboxTags" class="text-xs font-semibold text-brass block mb-2"></span>
+                        <h3 id="lightboxTitle" class="font-serif text-2xl font-bold text-charcoal mb-4"></h3>
+                        <p id="lightboxDesc" class="text-sm text-espresso/85 leading-relaxed mb-6"></p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="orderFromLightbox()" class="w-full py-3.5 rounded-full bg-charcoal hover:bg-brass text-white text-sm font-medium transition-colors">
+                            მსგავსი პროექტის შეკვეთა
+                        </button>
+                        <button onclick="closeLightbox()" class="w-full py-2.5 rounded-full bg-linen text-espresso text-xs font-medium hover:bg-sandstone transition-colors">
+                            დახურვა
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+    <script>
+        // 1. Mobile Navigation Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // 2. Interactive Color & Painting Studio Switcher
+        const paletteData = {
+            dove: {
+                img: 'image_81c938.jpg',
+                badge: 'NCS S 4005-G50Y • მატოვი ლაქი',
+                title: 'მტრედისფერი ნაცრისფერი & თითბერის დეტალები',
+                desc: 'ფრეზირებული MDF ფასადი, განათებული ვიტრინები და მარმარილოს კუნძული.',
+                color: '#8C918E'
+            },
+            cashmere: {
+                img: 'image_81ccfb.jpg',
+                badge: 'NCS S 2005-Y20R • აბრეშუმისებრი გლუვი',
+                title: 'თბილი ქაშმირი & რადიუსული ფორმები',
+                desc: 'მომრგვალებული კუნძული, თითის ანაბეჭდის საწინააღმდეგო დაფარვა და შავი აქცენტები.',
+                color: '#D8CFC2'
+            },
+            terracotta: {
+                img: 'image_81cca3.jpg',
+                badge: 'NCS S 4040-Y80R • არქიტექტურული ტონი',
+                title: 'ტერაკოტას თაღი & ნატურალური შპონი',
+                desc: 'ინდივიდუალური შეღებვა, თბილი LED განათება და კალაკატას მარმარილო.',
+                color: '#8F4A42'
+            },
+            sage: {
+                img: 'image_81ccdb.jpg',
+                badge: 'NCS S 4010-G10Y • ულტრა-მატოვი',
+                title: 'სალბისფერი ნისლი & მინიმალიზმი',
+                desc: 'თანამედროვე L-ფორმის სამზარეულო ინტეგრირებული რბილი დასაჯდომით.',
+                color: '#7A8B84'
+            }
+        };
+
+        const paletteButtons = document.querySelectorAll('.palette-btn');
+        const previewImg = document.getElementById('palettePreviewImg');
+        const paletteBadge = document.getElementById('paletteBadge');
+        const paletteTitle = document.getElementById('paletteTitle');
+        const paletteDesc = document.getElementById('paletteDesc');
+        const paletteSwatchCircle = document.getElementById('paletteSwatchCircle');
+
+        paletteButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset active styles
+                paletteButtons.forEach(b => {
+                    b.classList.remove('border-brass', 'bg-white', 'shadow-sm');
+                    b.classList.add('border-transparent', 'bg-white/70');
+                });
+                // Set active style
+                btn.classList.remove('border-transparent', 'bg-white/70');
+                btn.classList.add('border-brass', 'bg-white', 'shadow-sm');
+
+                const key = btn.getAttribute('data-palette');
+                const item = paletteData[key];
+                if (item) {
+                    previewImg.style.opacity = '0.4';
+                    setTimeout(() => {
+                        previewImg.src = item.img;
+                        paletteBadge.textContent = item.badge;
+                        paletteTitle.textContent = item.title;
+                        paletteDesc.textContent = item.desc;
+                        paletteSwatchCircle.style.backgroundColor = item.color;
+                        previewImg.style.opacity = '1';
+                    }, 180);
+                }
+            });
+        });
+
+        // 3. Portfolio Category Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        function applyPortfolioFilter(filterValue) {
+            filterBtns.forEach(btn => {
+                if (btn.getAttribute('data-filter') === filterValue) {
+                    btn.classList.remove('bg-linen', 'text-espresso');
+                    btn.classList.add('bg-charcoal', 'text-white');
+                } else {
+                    btn.classList.remove('bg-charcoal', 'text-white');
+                    btn.classList.add('bg-linen', 'text-espresso');
+                }
+            });
+
+            portfolioItems.forEach(item => {
+                const categories = item.getAttribute('data-category') || '';
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyPortfolioFilter(btn.getAttribute('data-filter'));
+            });
+        });
+
+        // Hero hashtag quick jump with filter activation
+        document.querySelectorAll('.hashtag-jump').forEach(link => {
+            link.addEventListener('click', () => {
+                const targetFilter = link.getAttribute('data-filter');
+                if (targetFilter) applyPortfolioFilter(targetFilter);
+            });
+        });
+
+        // 4. Lightbox Modal Functions
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDesc = document.getElementById('lightboxDesc');
+        const lightboxTags = document.getElementById('lightboxTags');
+        let currentLightboxProject = '';
+
+        function openLightbox(imgSrc, title, desc, tags) {
+            currentLightboxProject = title;
+            lightboxImg.src = imgSrc;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = desc;
+            lightboxTags.textContent = tags;
+            lightboxModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function orderFromLightbox() {
+            closeLightbox();
+            const notesField = document.getElementById('projectNotes');
+            notesField.value = `მაინტერესებს პროექტი: „${currentLightboxProject}“. `;
+            document.getElementById('estimator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close lightbox on Escape key or backdrop click
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        // 5. Soft Furniture Bed Quick Order Helper
+        function selectBedOrder(bedTitle) {
+            const notesField = document.getElementById('projectNotes');
+            notesField.value = `მსურს შეკვეთა: ${bedTitle}. გთხოვთ გამაცნოთ ქსოვილებისა და ზომების დეტალები.`;
+            
+            // Activate Soft Furniture chip
+            document.querySelectorAll('.chip-btn').forEach(chip => {
+                if (chip.getAttribute('data-val').includes('რბილი ავეჯი')) {
+                    chip.classList.add('active', 'bg-charcoal', 'text-white', 'border-charcoal');
+                    chip.classList.remove('bg-alabaster', 'text-espresso', 'border-sandstone');
+                }
+            });
+
+            document.getElementById('estimator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 6. Multi-Select Category Chips in Estimator Form
+        document.querySelectorAll('.chip-btn').forEach(chip => {
+            chip.addEventListener('click', () => {
+                chip.classList.toggle('active');
+                if (chip.classList.contains('active')) {
+                    chip.classList.remove('bg-alabaster', 'text-espresso', 'border-sandstone');
+                    chip.classList.add('bg-charcoal', 'text-white', 'border-charcoal');
+                } else {
+                    chip.classList.remove('bg-charcoal', 'text-white', 'border-charcoal');
+                    chip.classList.add('bg-alabaster', 'text-espresso', 'border-sandstone');
+                }
+            });
+        });
+
+        // 7. Form Submission with Custom Message Box (No alert())
+        const projectForm = document.getElementById('projectForm');
+        const formSuccessBox = document.getElementById('formSuccessBox');
+        const formSuccessText = document.getElementById('formSuccessText');
+
+        projectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const selectedChips = Array.from(document.querySelectorAll('.chip-btn.active'))
+                .map(c => c.getAttribute('data-val'))
+                .join(', ');
+
+            formSuccessText.textContent = `მადლობა, ${name}! თქვენი განაცხადი (${selectedChips || 'ინდივიდუალური პროექტი'}) დაფიქსირდა. LIVARO FURNITURE-ის მენეჯერი დაგიკავშირდებათ ნომერზე ${phone}.`;
+            formSuccessBox.classList.remove('hidden');
+            projectForm.reset();
+        });
+
+        // 8. Smooth Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
